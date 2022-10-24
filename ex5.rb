@@ -2,11 +2,10 @@
 
 class LaunchDiscussionWorkflow
 
-  def initialize(discussion, host, participants_email_string)
+  def initialize(discussion, host, participants)
     @discussion = discussion
     @host = host
-    @participants_email_string = participants_email_string
-    @participants = []
+    @participants = participants
   end
 
   def initialize_with_string(discussion, host, participants_email_string)
