@@ -30,7 +30,11 @@ class LaunchDiscussionWorkflow
   
   private: 
   def get_list_of_emails(str)
-    
+    str.split("\n")
+  end
+
+  def get_unique_emails(str)
+    get_list_of_emails(str).uniq
   end
 
   # ...
