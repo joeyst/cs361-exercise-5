@@ -9,6 +9,10 @@ class LaunchDiscussionWorkflow
     @participants = []
   end
 
+  def initialize_with_string(discussion, host, participants_email_string)
+    Self.new(discussion, host, get_users(participants_email_string))
+  end
+
   # Expects @participants array to be filled with User objects
   def run
     return unless valid?
