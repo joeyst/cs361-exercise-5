@@ -42,8 +42,9 @@ class LaunchDiscussionWorkflow
   end
 
   def get_users(str)
-    get_unique_emails(str).map { |email| User.create(email: email.downcase, password: Devise.friendly_token) }
-  end
+    return if str.blank? 
+    get_unique_emails(str).map { |email| User.create(email: email.downcase, password: Devise.friendly_token) } 
+  end 
 end
 
 
