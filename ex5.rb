@@ -27,6 +27,11 @@ class LaunchDiscussionWorkflow
       User.create(email: email_address.downcase, password: Devise.friendly_token)
     end
   end
+  
+  private: 
+  def get_list_of_emails(str)
+    
+  end
 
   # ...
 
