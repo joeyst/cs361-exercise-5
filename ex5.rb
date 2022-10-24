@@ -14,7 +14,7 @@ class LaunchDiscussionWorkflow
 
   # Expects @participants array to be filled with User objects
   def run
-    return unless valid?
+    return if participants.empty?
     run_callbacks(:create) do
       ActiveRecord::Base.transaction do
         discussion.save!
