@@ -15,13 +15,11 @@ class LaunchDiscussionWorkflow
   # Expects @participants array to be filled with User objects
   def run
     return if participants.empty?
-    run_callbacks(:create) do
-      ActiveRecord::Base.transaction do
-        discussion.save!
-        create_discussion_roles!
-        @successful = true
-      end
-    end
+    transaction = ActiveRecord::Base.transaction.new
+    transaction.discussion.save!
+    transaction.create_discussion_roles!
+    transaction.successful = true
+    transaction
   end
   
   private: 
