@@ -35,7 +35,7 @@ class LaunchDiscussionWorkflow
     return if str.blank? 
     get_unique_emails(str).map { |email| User.create(email: email.downcase, password: Devise.friendly_token) } 
   end 
-  
+
 end
 
 
@@ -43,4 +43,4 @@ discussion = Discussion.new(title: "fake", ...)
 host = User.find(42)
 participants = "fake1@example.com\nfake2@example.com\nfake3@example.com"
 
-LaunchDiscussionWorkflow.new(discussion, host, participants).run
+LaunchDiscussionWorkflow.initialize_with_string(discussion, host, participants).run
